@@ -20,6 +20,7 @@
 <body>
 <style>
   :root {
+    color-scheme: light;
     --paper: #ffffff;
     --surface: #faf9f6;
     --ink: #1c2529;
@@ -33,24 +34,6 @@
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --maxw: 1180px;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper: #14181a; --surface: #1a1f21; --ink: #e9e7de; --ink-soft: #a3aca8;
-      --ink-faint: #6f7873; --accent: #6cbfae; --accent-deep: #86d0c0;
-      --rule: #29302f; --rule-strong: #3a4341;
-    }
-  }
-  :root[data-theme="light"] {
-    --paper: #ffffff; --surface: #faf9f6; --ink: #1c2529; --ink-soft: #55605f;
-    --ink-faint: #8a938f; --accent: #2f6b5f; --accent-deep: #234f46;
-    --rule: #dedcd3; --rule-strong: #c8c6bc;
-  }
-  :root[data-theme="dark"] {
-    --paper: #14181a; --surface: #1a1f21; --ink: #e9e7de; --ink-soft: #a3aca8;
-    --ink-faint: #6f7873; --accent: #6cbfae; --accent-deep: #86d0c0;
-    --rule: #29302f; --rule-strong: #3a4341;
-  }
-
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -94,15 +77,6 @@
   }
   nav.toc a:hover { color: var(--ink); background: var(--surface); }
   nav.toc a.active { color: var(--accent); }
-
-  .theme-btn {
-    flex: none; background: none; border: 1px solid var(--rule-strong);
-    color: var(--ink-soft); font-family: var(--sans);
-    font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase;
-    padding: 7px 13px; border-radius: 100px; cursor: pointer;
-    display: flex; align-items: center; gap: 8px; transition: border-color .2s ease, color .2s ease;
-  }
-  .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
 
   /* ---------- Layout ---------- */
   .wrap {
@@ -265,9 +239,6 @@
       <a href="#publications">Publications</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle colour theme">
-      <span id="themeLabel">Dark</span>
-    </button>
   </div>
 </header>
 
@@ -513,22 +484,6 @@
 
 <script>
   (function () {
-    var root = document.documentElement;
-    if (!root.getAttribute('data-theme')) root.setAttribute('data-theme', 'light');
-    var btn = document.getElementById('themeBtn');
-    var label = document.getElementById('themeLabel');
-    function current() {
-      var attr = root.getAttribute('data-theme');
-      if (attr) return attr;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    function sync() { label.textContent = current() === 'dark' ? 'Light' : 'Dark'; }
-    btn.addEventListener('click', function () {
-      var next = current() === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next); sync(); drawCanvas();
-    });
-    sync();
-
     var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
     var map = {};
     links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });

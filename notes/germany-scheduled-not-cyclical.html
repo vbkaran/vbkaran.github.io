@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scheduled, Not Cyclical — Karan Singh Bagavathinathan</title>
+<meta name="description" content="Germany's rotation from autos toward defence and AI changes the information structure of its business cycle. A note on anticipated components, news, and the optimal size of a nowcasting indicator set.">
+<meta name="author" content="Karan Singh Bagavathinathan">
+<link rel="canonical" href="https://vbkaran.github.io/notes/germany-scheduled-not-cyclical.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Karan Singh Bagavathinathan">
+<meta property="og:title" content="Scheduled, Not Cyclical: Germany's Turn from Auto to Defence and AI">
+<meta property="og:description" content="An anticipated component of output enters the conditioning set before the nowcast is formed, so its innovation is zero. What Germany's sectoral rotation implies for the optimal indicator set.">
+<meta property="og:url" content="https://vbkaran.github.io/notes/germany-scheduled-not-cyclical.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scheduled, Not Cyclical: Germany's Turn from Auto to Defence and AI">
+<meta name="twitter:description" content="An anticipated component of output enters the conditioning set before the nowcast is formed, so its innovation is zero.">
+
+<style>
+  :root{
+    --paper:#ffffff; --ink:#000000; --ink-soft:#000000; --rule:#000000;
+    --serif:"Times New Roman",Times,"Liberation Serif","Nimbus Roman",Georgia,serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--paper:#111111;--ink:#e8e8e8;--ink-soft:#e8e8e8;--rule:#e8e8e8;}
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--serif);font-size:17.5px;line-height:1.52;
+    -webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-underline-offset:.15em;}
+
+  .wrap{max-width:36rem;margin:0 auto;
+    padding:clamp(22px,4vw,46px) clamp(20px,5vw,30px) 80px;}
+
+  .back{display:inline-block;font-size:13px;text-decoration:none;
+    margin-bottom:40px;opacity:.55;}
+  .back:hover{opacity:1;text-decoration:underline;}
+
+  /* ---------- title block (AER) ---------- */
+  .titleblock{text-align:center;margin:0 0 26px;}
+  h1{font-weight:700;font-size:clamp(23px,3.2vw,28px);line-height:1.22;
+    margin:0 0 6px;letter-spacing:-0.005em;text-wrap:balance;}
+  .sub{font-weight:400;font-size:clamp(17px,2.2vw,20px);line-height:1.28;
+    margin:0 0 20px;text-wrap:balance;}
+  .by{font-size:13px;letter-spacing:.09em;text-transform:uppercase;margin:0 0 4px;}
+  .dateline{font-size:13.5px;font-style:italic;margin:0;}
+
+  /* ---------- abstract (AER) ---------- */
+  .abstract{margin:26px auto 34px;padding:0 clamp(0px,4vw,34px);}
+  .abstract p{font-size:15px;line-height:1.46;margin:0;
+    text-align:justify;hyphens:auto;}
+  .abstract .lab{font-style:italic;}
+
+  /* ---------- sections ---------- */
+  h2{font-weight:400;font-size:16px;line-height:1.35;text-align:center;
+    margin:30px 0 12px;letter-spacing:.04em;text-transform:uppercase;}
+  p{margin:0 0 0;text-align:justify;hyphens:auto;text-indent:1.5em;}
+  p+p{margin-top:0;}
+  h2+p,.abstract+p,.eqwrap+p,.tablewrap+p{text-indent:0;}
+  .lead{text-indent:0;}
+
+  /* ---------- equation ---------- */
+  .eqwrap{display:grid;grid-template-columns:1fr auto;align-items:center;
+    gap:12px;margin:18px 0;}
+  .eq{text-align:center;font-size:17px;line-height:1.5;overflow-x:auto;padding:2px 0;}
+  .eq var{font-style:italic;}
+  .eq .op{font-style:normal;padding:0 .22em;}
+  .eqnum{font-size:16px;}
+
+  /* ---------- table (AER) ---------- */
+  .tablewrap{margin:26px 0;}
+  .tabtitle{text-align:center;font-size:13px;letter-spacing:.06em;
+    text-transform:uppercase;margin:0 0 9px;text-indent:0;}
+  .scroller{overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.36;}
+  th,td{text-align:left;padding:6px 14px 6px 0;vertical-align:top;}
+  thead th{font-weight:400;font-style:italic;
+    border-top:1.1px solid var(--rule);border-bottom:.6px solid var(--rule);
+    padding-top:7px;padding-bottom:6px;}
+  tbody tr:last-child td{border-bottom:1.1px solid var(--rule);}
+  .tabnote{font-size:13px;line-height:1.42;margin:9px 0 0;
+    text-align:left;text-indent:0;hyphens:none;}
+  .tabnote i{font-style:italic;}
+
+  /* ---------- caveats ---------- */
+  .caveat p{margin-top:11px;text-indent:1.5em;}
+  .caveat p i{font-style:italic;}
+
+  /* ---------- references ---------- */
+  .refs{margin-top:34px;}
+  .refs h3{font-weight:400;font-size:16px;text-align:center;letter-spacing:.04em;
+    text-transform:uppercase;margin:0 0 14px;}
+  .refs p{margin:0 0 8px;font-size:15px;line-height:1.42;
+    text-indent:-1.6em;padding-left:1.6em;text-align:left;hyphens:none;}
+  .foot{margin-top:26px;font-size:13.5px;font-style:italic;
+    text-align:left;text-indent:0;opacity:.75;}
+
+  @media (max-width:560px){
+    body{font-size:16.5px;}
+    p,.abstract p{text-align:left;}
+  }
+  @media print{
+    body{background:#fff;color:#000;font-size:11pt;line-height:1.4;}
+    .back{display:none;}
+    .wrap{max-width:none;padding:0;}
+    h2{break-after:avoid;}
+    .eqwrap,.tablewrap{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="https://vbkaran.github.io/">&larr; Karan Singh Bagavathinathan</a>
+
+    <div class="titleblock">
+      <h1>Scheduled, Not Cyclical</h1>
+      <p class="sub">What Germany&rsquo;s Turn from Auto to Defence and AI Means for Nowcasting</p>
+      <p class="by">By Karan Singh Bagavathinathan<span aria-hidden="true">*</span></p>
+      <p class="dateline">19 July 2026</p>
+    </div>
+
+    <div class="abstract">
+      <p><span class="lab">Germany is reallocating industrial activity from automotive production toward defence and AI capital formation. This note argues that the reallocation changes the information structure of the German business cycle in a way that aggregate measures of economic structure will not detect. Defence output is anticipated by construction: it enters the forecaster&rsquo;s conditioning set at announcement, so its realisation carries no news and contributes nothing to a nowcast, whatever its share of value added. AI capital expenditure generates genuine news but raises the volatility of the target. Both forces move the accuracy-maximising indicator count in the same direction. The argument is conceptual; the post-2022 sample is far too short to estimate it.</span></p>
+    </div>
+
+    <p class="lead">Germany is trading one kind of output for another. The automotive complex is contracting; defence and AI capital formation are expanding. For a forecaster looking several years ahead this is close to good news, because defence procurement is legislated in advance and published, which makes it far more predictable than the car cycle it displaces. For anyone trying to establish what the German economy did <i>last quarter</i>, it is the reverse. An appropriation passed in 2025 tells you nothing in 2028 that you did not already know in 2025. The automotive cycle, driven by private consumption and credit, revealed itself only through indicators as it happened &mdash; which is precisely what made those indicators worth watching. AI capital expenditure falls between the two: privately decided and genuinely informative, but volatile enough to be a noisy guide.</p>
+
+    <p>The growth-accounting consequences of this rotation have been widely discussed. The measurement consequences have not. Composition and information structure are distinct properties of an economy, and this note argues that in Germany they are now moving in different directions &mdash; with the second invisible to the aggregate measures usually used to track the first.</p>
+
+    <h2>I. The Object Being Estimated</h2>
+
+    <p class="lead">Nowcasting is closer to a signal-extraction problem than to a forecasting one: the target for the reference quarter is largely realised but unpublished. National accounts are released with a publication lag of roughly thirty to forty-five days and are subsequently revised. Monthly and higher-frequency indicators arrive on staggered schedules within the quarter, so the conditioning set expands continuously and the panel is unbalanced &mdash; the ragged-edge problem that motivates the state-space and mixed-frequency treatments of Giannone, Reichlin, and Small (2008) and Bańbura et al. (2013).</p>
+
+    <p>Let <var>y<sub>t</sub></var> denote the target for quarter <var>t</var> and Ω<sub>&tau;</sub> the information set available at release date &tau;. The nowcast is the conditional expectation 𝔼[<var>y<sub>t</sub></var>&hairsp;|&hairsp;Ω<sub>&tau;</sub>], and the arrival of a series <var>x</var> revises it only through that series&rsquo; innovation relative to the existing set:</p>
+
+    <div class="eqwrap">
+      <div class="eq">
+        𝔼[<var>y<sub>t</sub></var>&hairsp;|&hairsp;Ω<sub>&tau;</sub> &cup; {<var>x</var>}] <span class="op">&minus;</span> 𝔼[<var>y<sub>t</sub></var>&hairsp;|&hairsp;Ω<sub>&tau;</sub>]
+        <span class="op">&nbsp;&prop;&nbsp;</span>
+        <var>x</var> <span class="op">&minus;</span> 𝔼[<var>x</var>&hairsp;|&hairsp;Ω<sub>&tau;</sub>].
+      </div>
+      <div class="eqnum">(1)</div>
+    </div>
+
+    <p>Equation (1) is the standard news decomposition. In words, a release revises the nowcast only to the extent that it surprises: a reading that was fully anticipated leaves the estimate unchanged, because the forecaster had already priced it in. What moves the estimate is the deviation from expectation, not the level of the series.</p>
+
+    <p>The implication is the organising point of this note: an indicator earns its place in a nowcast by carrying <i>news</i>, not by leading. A coincident series with a short publication lag dominates a leading series with a long one. Nowcasting and forecasting draw on largely the same candidate series; what differs is the property that earns a series its place, and hence the weight it receives. The same survey may enter a forecast through its expectations component and a nowcast through its assessment of current conditions.</p>
+
+    <p>One case is extreme. A component of output that is anticipated &mdash; already an element of Ω<sub>&tau;</sub> when the nowcast is formed &mdash; has an innovation of zero on the right-hand side of (1). It contributes nothing to the estimate, however large its share of value added. Section II argues that German defence production is close to this case by construction.</p>
+
+    <h2>II. Defence: Anticipated by Construction</h2>
+
+    <p class="lead">Defence production is unusually heavily planned: multi-year procurement programmes, appropriations passed in advance, published order books. Under the time-to-build logic of Kydland and Prescott (1982), long and binding planning lags are exactly what generate forecastable output.</p>
+
+    <p>For forecasting at horizons of years, this is an advantage. For nowcasting it is close to irrelevant, and for the same reason. The anticipated component enters Ω<sub>&tau;</sub> at announcement, well before the reference quarter; its realisation is not an innovation. It does not require an indicator. This is precisely the property Ramey (2011) exploits: defence spending identifies fiscal shocks <i>because</i> it is announced ahead of time, and the econometric problem is one of timing rather than of measurement.</p>
+
+    <p>A second property compounds the first. Defence demand is determined by geopolitical and budgetary processes that are not synchronised with the domestic cycle, and it is lumpy &mdash; extended flat intervals punctuated by discrete steps. It is closer to a deterministic level shift than to a cyclical state variable, and it therefore adds little to the common factor structure that nowcasting models exploit.</p>
+
+    <h2>III. AI Capital Expenditure: The Opposite Configuration</h2>
+
+    <p class="lead">AI-related investment sits at the other corner. It is privately determined, it is capital formation &mdash; the most cyclically sensitive expenditure component &mdash; and it responds to expectations and financing conditions rather than to an administrative schedule. Firm decisions are revealed only through observables, so the channel does generate genuine innovations, and there are timely series that carry them: capital-goods and semiconductor-equipment orders, credit conditions, investment surveys.</p>
+
+    <p>The offsetting feature is variance. Expectations-driven capital cycles are volatile and prone to sharp reversal. In a bias&ndash;variance treatment of indicator choice the accuracy-maximising number of predictors is decreasing in the volatility of the target: noisier conditioning information raises estimation variance faster than it lowers approximation bias, so the optimum shifts toward parsimony (Bagavathinathan and Sridevi 2026).</p>
+
+    <h2>IV. What Is Displaced</h2>
+
+    <p class="lead">The contracting sector was, from a measurement standpoint, close to ideal. Automotive activity is privately determined, income- and credit-elastic, strongly procyclical, and observed through fast, well-established series &mdash; new orders, production, registrations. Its determinants are revealed only through indicators, which is what made those indicators informative in the first place.</p>
+
+    <div class="tablewrap">
+      <p class="tabtitle">Table 1&mdash;Three Channels and Their Contribution to the Conditioning Set</p>
+      <div class="scroller">
+      <table>
+        <thead>
+          <tr><th>Channel</th><th>Determined by</th><th>Cyclical</th><th>Effect on conditioning set</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Automotive &darr;</td><td>Private &mdash; consumption, credit</td><td>Strongly procyclical</td><td>Removes a high-signal, fast-observed factor</td></tr>
+          <tr><td>Defence &uarr;</td><td>Government, geopolitical</td><td>Acyclical, lumpy</td><td>Adds value added, no innovation</td></tr>
+          <tr><td>AI capex &uarr;</td><td>Private &mdash; expectations, financing</td><td>Procyclical, high &sigma;&sup2;</td><td>Adds innovation and variance</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="tabnote"><i>Notes:</i> Classification is conceptual rather than estimated. &ldquo;Innovation&rdquo; refers to the right-hand side of equation (1): the component of a series not predictable from the information set already available when the nowcast is formed.</p>
+    </div>
+
+    <p>The three effects are not offsetting. Two reduce the number of independent cyclical factors the nowcaster can exploit; the third raises the volatility of the target. Both channels move the accuracy-maximising indicator count in the same direction.</p>
+
+    <p>The asymmetry in scale is worth stating precisely, because the fiscal headline overstates the industrial reallocation by a wide margin. Cox et al. (2025) put arms sales by major German companies at 0.2 per cent of GDP in 2023 against 5 per cent for the automotive industry, which employed 772,900 people to defence&rsquo;s 80,000. Defence <i>expenditure</i> is projected to approach 3.5 per cent of GDP by 2028, but expenditure and domestic industrial value added are not the same object: a substantial share of procurement is expected to be sourced abroad, and much of the remainder is personnel and infrastructure rather than manufacturing output. The channel being contracted is therefore an order of magnitude larger, in industrial terms, than the one being expanded. What follows is a statement about the composition of the residual signal, not about a wholesale substitution.</p>
+
+    <p>This bears directly on Bagavathinathan and Sridevi (2026). Across twelve economies over a common out-of-sample window, the accuracy-maximising number of indicators in a GDP nowcast is explained by economic complexity rather than by income &mdash; the interpretation being that the number of orthogonal sources of cyclical signal an economy generates bounds how many indicators can help. Complexity in the sense of Hidalgo and Hausmann (2009) is a property of the <i>capability base</i>. What the German rotation alters is the <i>information base</i>: which activities are revealed through observables rather than through announcements. A reallocation from privately determined to administratively scheduled production can compress the second while leaving the first intact. If so, the two measures would diverge, and complexity would cease to be a sufficient statistic for the optimal indicator count. That is a testable proposition, and an inconvenient one for my own framework.</p>
+
+    <h2>V. What Is Not Claimed</h2>
+
+    <div class="caveat">
+      <p class="lead">This is a conjecture, not an estimate. The defence expansion dates from 2022 and the AI capital cycle is more recent still &mdash; on the order of a dozen quarterly observations. That is far short of what is required to identify a changed indicator set out of sample. Any re-estimated nowcasting specification for a defence-led Germany is fitting noise.</p>
+      <p>The industrial magnitudes are also small. The reallocation is real &mdash; German automotive production is down 31 per cent from its 2011 peak, with major plants running at a quarter to a third of capacity and roughly 100,000 jobs at risk (Cox et al. 2025) &mdash; but the receiving sector is far smaller than the departing one, and the fiscal aggregates do not measure domestic value added. The composition of the cyclical signal can shift materially without the aggregate shares doing so.</p>
+      <p>Finally, appropriations are not outlays. Procurement schedules slip, and announced budgets map imperfectly onto the timing of production &mdash; what Cox et al. term a &ldquo;ketchup bottle effect,&rdquo; with orders and payment-on-delivery separated by a lag of years, and plant conversion itself requiring two to three years. Defence output is anticipated in principle and irregular in execution. This weakens the argument of Section II without reversing it: irregular execution introduces timing noise, but the source of that noise is administrative rather than cyclical, so it is not information a business-cycle indicator would recover.</p>
+    </div>
+
+    <p>The conceptual point survives these qualifications, and it runs against the intuitive reading. A more heavily planned economy is not a more legible one at short horizons. Planning relocates information from indicators into announcements. That improves the medium-term forecast and degrades the nowcast, and the degradation will not be visible in any statistic computed on the capability base alone.</p>
+
+    <div class="refs">
+      <h3>References</h3>
+      <p>Bagavathinathan, Karan Singh, and T. O. Sridevi. 2026. &ldquo;Know the Economy, Not the Data Lake: Country Structure and the Right Number of Indicators in a GDP Nowcast.&rdquo; Working paper. <a href="https://vbkaran.github.io/papers/know-the-economy-not-the-data-lake.html">Details</a>.</p>
+      <p>Bańbura, Marta, Domenico Giannone, Michele Modugno, and Lucrezia Reichlin. 2013. &ldquo;Now-Casting and the Real-Time Data Flow.&rdquo; In <i>Handbook of Economic Forecasting</i>, Vol. 2A, 195&ndash;237. Amsterdam: Elsevier.</p>
+      <p>Cox, Adrian, Tim Rokossa, Christophe Menard, Marion Muehlberger, Christoph Laskawi, Scott Deuschle, and Sam Desai. 2025. &ldquo;Germany&rsquo;s Shrinking Auto Industry May Be Key to Defence Ramp Up.&rdquo; Deutsche Bank Research Institute, March.</p>
+      <p>Giannone, Domenico, Lucrezia Reichlin, and David Small. 2008. &ldquo;Nowcasting: The Real-Time Informational Content of Macroeconomic Data.&rdquo; <i>Journal of Monetary Economics</i> 55 (4): 665&ndash;76.</p>
+      <p>Hidalgo, César A., and Ricardo Hausmann. 2009. &ldquo;The Building Blocks of Economic Complexity.&rdquo; <i>Proceedings of the National Academy of Sciences</i> 106 (26): 10570&ndash;75.</p>
+      <p>Kydland, Finn E., and Edward C. Prescott. 1982. &ldquo;Time to Build and Aggregate Fluctuations.&rdquo; <i>Econometrica</i> 50 (6): 1345&ndash;70.</p>
+      <p>Ramey, Valerie A. 2011. &ldquo;Identifying Government Spending Shocks: It&rsquo;s All in the Timing.&rdquo; <i>Quarterly Journal of Economics</i> 126 (1): 1&ndash;50.</p>
+      <p class="foot">* Bagavathinathan: Germany (email: <a href="mailto:vbk.singh@gmail.com">vbk.singh@gmail.com</a>; web: <a href="https://vbkaran.github.io">vbkaran.github.io</a>). Research note accompanying ongoing work on cross-country GDP nowcasting. Comments welcome.</p>
+    </div>
+  </div>
+</body>
+</html>

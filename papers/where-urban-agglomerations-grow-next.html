@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where Urban Agglomerations Grow Next — Karan Singh Bagavathinathan</title>
+<meta name="description" content="Half the Global South's urban fabric is post-1990, and within the same city the newer the ground, the poorer and less serviced it is. Build-vintage gives a satellite-observable map of where the service deficit is now — across 26 countries and 334,091 households.">
+<meta name="author" content="Karan Singh Bagavathinathan">
+<link rel="canonical" href="https://vbkaran.github.io/papers/where-urban-agglomerations-grow-next.html">
+
+<!-- Open Graph (LinkedIn, Facebook) -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Karan Singh Bagavathinathan">
+<meta property="og:title" content="Where Urban Agglomerations Grow Next">
+<meta property="og:description" content="Half the Global South's city fabric is post-1990 — and within the same city, the newer the ground, the poorer and less serviced it is. Build-date is a map of where to service first.">
+<meta property="og:url" content="https://vbkaran.github.io/papers/where-urban-agglomerations-grow-next.html">
+<meta property="og:image" content="https://vbkaran.github.io/papers/where-urban-agglomerations-grow-next-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Where Urban Agglomerations Grow Next — working paper by Karan Singh Bagavathinathan">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Where Urban Agglomerations Grow Next">
+<meta name="twitter:description" content="Half the Global South's city fabric is post-1990 — and the newer the ground, the poorer and less serviced it is.">
+<meta name="twitter:image" content="https://vbkaran.github.io/papers/where-urban-agglomerations-grow-next-card.png">
+
+<style>
+  :root{
+    --paper:#ffffff; --surface:#faf9f6; --ink:#1c2529; --ink-soft:#55605f;
+    --ink-faint:#8a938f; --accent:#2f6b5f; --accent-deep:#234f46;
+    --rule:#dedcd3; --rule-strong:#c8c6bc;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--paper:#14181a;--surface:#1a1f21;--ink:#e9e7de;--ink-soft:#a3aca8;
+      --ink-faint:#6f7873;--accent:#6cbfae;--accent-deep:#86d0c0;--rule:#29302f;--rule-strong:#3a4341;}
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  a{color:var(--accent);}
+  .wrap{max-width:760px;margin:0 auto;padding:clamp(28px,6vw,64px) clamp(20px,5vw,40px) 80px;}
+  .back{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;letter-spacing:.03em;
+    text-decoration:none;color:var(--ink-faint);margin-bottom:34px;}
+  .back:hover{color:var(--accent);}
+  .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+    font-weight:600;margin:0 0 16px;}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(27px,4vw,38px);line-height:1.2;
+    letter-spacing:-0.015em;margin:0 0 8px;text-wrap:balance;}
+  .sub{font-family:var(--serif);font-style:italic;font-size:clamp(17px,2.2vw,21px);
+    color:var(--ink-soft);margin:0 0 18px;line-height:1.4;}
+  .authors{font-size:15.5px;color:var(--ink-soft);margin:0 0 26px;}
+  .authors strong{color:var(--ink);font-weight:600;}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 44px;}
+  .btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-size:15px;
+    font-weight:600;letter-spacing:.01em;padding:11px 20px;border-radius:8px;}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:var(--accent-deep);}
+  .btn-ghost{border:1px solid var(--rule-strong);color:var(--ink-soft);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-faint);font-weight:600;margin:0 0 12px;}
+  .lead{font-family:var(--serif);font-size:clamp(19px,2.4vw,23px);line-height:1.5;
+    color:var(--ink);margin:0 0 8px;}
+  .lead b{color:var(--accent-deep);font-weight:700;}
+  .prose p{margin:0 0 20px;}
+  .prose b{color:var(--ink);font-weight:650;}
+
+  figure.fig{margin:36px 0 14px;padding:0;}
+  figure.fig img{width:100%;height:auto;display:block;border:1px solid var(--rule);
+    border-radius:10px;background:#fff;}
+  figure.fig figcaption{font-size:14px;line-height:1.5;color:var(--ink-faint);
+    margin-top:12px;padding-left:2px;}
+  figure.fig figcaption b{color:var(--ink-soft);font-weight:650;}
+  .fnum{color:var(--accent);font-weight:700;}
+
+  .divider{border:0;border-top:1px solid var(--rule);margin:44px 0 36px;}
+  .abstract-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-faint);font-weight:600;margin:0 0 12px;}
+  .abstract{font-size:16.5px;color:var(--ink-soft);margin:0 0 30px;}
+  .abstract p{margin:0 0 14px;}
+  .meta{border-top:1px solid var(--rule);padding-top:22px;font-size:14px;color:var(--ink-faint);}
+  .meta p{margin:0 0 8px;}
+  .meta strong{color:var(--ink-soft);}
+  .viewer{margin-top:40px;border:1px solid var(--rule);border-radius:10px;overflow:hidden;
+    background:var(--surface);}
+  .viewer iframe{width:100%;height:80vh;border:0;display:block;}
+  @media (max-width:640px){.viewer{display:none;}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="https://vbkaran.github.io/">&larr; Karan Singh Bagavathinathan</a>
+
+    <p class="eyebrow">Working Paper · 2026</p>
+    <h1>Where Urban Agglomerations Grow Next</h1>
+    <p class="sub">Build-vintage as a map for service and investment — evidence from 26 Global-South countries</p>
+    <p class="authors"><strong>Karan Singh Bagavathinathan</strong></p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="where-urban-agglomerations-grow-next.pdf" target="_blank" rel="noopener">Download the paper ↗</a>
+      <a class="btn btn-ghost" href="https://vbkaran.github.io/">More of my research →</a>
+    </div>
+
+    <p class="kicker">Two results</p>
+    <p class="lead">Across 26 Global-South countries, a city&rsquo;s economic edge routinely outgrows its serviced core. I date every pixel of urban fabric by the decade it was first built, split each agglomeration into a pre-1990 core and decadal expansion rings, and place <b>334,091</b> georeferenced survey households on those rings. Two pictures carry the argument.</p>
+
+    <figure class="fig">
+      <img src="where-urban-agglomerations-grow-next-fig5.png" alt="Stacked bar chart of urban built-up footprint by build-vintage for 26 countries; about half of the 2020 footprint was built after 1990.">
+      <figcaption><b><span class="fnum">Figure 5.</span> The scale.</b> Built-up footprint by the decade each patch was first built (GHSL, 1990/2000/2010/2020). The right panel rescales every country to 100% so the post-1990 share is legible regardless of city size.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <p>About half of today&rsquo;s urban fabric is post-1990 — a median of <b>45%</b> across countries, and in the fastest cases the newer build exceeds the entire pre-1990 city (Phnom Penh is 85% new; Amman, Ouagadougou, Accra, Kathmandu and Addis Ababa are all above half). India and Nigeria alone hold 56% of the sample&rsquo;s urban land. The city most institutions still picture — the old serviced core — is now a minority of the ground people actually live on.</p>
+    </div>
+
+    <figure class="fig">
+      <img src="where-urban-agglomerations-grow-next-fig2.png" alt="Coefficient plot: within the same city, deprivation deepens on newer expansion rings across wealth, flush toilet, electricity, and clean cooking.">
+      <figcaption><b><span class="fnum">Figure 2.</span> The consequence.</b> Within-agglomeration gap to a city&rsquo;s own pre-1990 core, with city fixed effects and 95% confidence intervals. Each point is a decadal ring; lower is more deprived.</figcaption>
+    </figure>
+
+    <div class="prose">
+      <p>That newer fabric is the deprived fabric. Holding the city fixed, deprivation deepens monotonically with how recently the land was built. Households on the <b>2010s ring</b> are about 0.37 SD poorer than their own core, with 10&ndash;12 percentage points less flush sanitation, electricity, and clean cooking — while the <b>1990s ring</b> has already converged back to the core. So the frontier is usually a transient cohort a city grows out of. But absorption takes roughly a decade, and that lag <em>is</em> the cost: a schooling gap that persists, out-of-pocket spending on missing services, hours lost commuting, and private investment kept off unserviced land — a drag on the whole city&rsquo;s productivity, not only on the households at the edge. Catch-up is not universal; Dhaka and Dushanbe stay deprived, and Amman inverts the pattern through refugee densification of its old core.</p>
+      <p><b>Why it matters.</b> Build-date is satellite-observable and near-real-time, so it gives a lender, a ministry, or a city a map of where the service deficit is <em>now</em> — which rings to connect to water, sewerage, and transit first — without waiting on the next household survey. How fast a city closes its frontier gap, and why a few never do, is the causal question this design sets up.</p>
+    </div>
+
+    <hr class="divider">
+
+    <p class="abstract-label">Abstract</p>
+    <div class="abstract">
+      <p>A city&rsquo;s economic boundary, its contiguous built-up agglomeration, routinely outgrows the boundary that governs it. Dating every pixel of urban fabric in 27 Global-South countries by the decade it first urbanized (GHSL build-vintage), we split each agglomeration into a pre-1990 core and three decadal expansion rings and place georeferenced DHS households on the rings in 26 of them across two survey waves (334,091 households, 758 agglomerations).</p>
+      <p>We report three findings. First, within the same city, deprivation falls with the age of the fabric; households on the 2010s ring are 0.37 SD poorer than their own core, with 10 to 12 pp less flush sanitation and clean cooking, while the 1990s ring is at the core. Second, following fixed rings across two waves these deficits narrow on average, so the frontier is usually a transient cohort the city grows out of, but absorption takes about a decade and the delay is costly, so it drags on the whole city&rsquo;s productivity and not only the households on it. Third, catch-up is not universal; Dhaka and Dushanbe stay deprived across both waves and Amman inverts the pattern, while which cities diverge tracks neither region nor income, and development-bank finance is neither necessary nor sufficient for closing the gap.</p>
+      <p>Because DHS frames predate the newest fabric they under-cover the frontier, so the estimates lean on the better-sampled cities and if anything understate the deficit. How fast a city closes its frontier gap, and why a few never do, is the causal question this design sets up.</p>
+    </div>
+
+    <div class="meta">
+      <p><strong>Keywords:</strong> urban agglomeration; build-vintage; remote sensing; urban frontier; service delivery; convergence; development finance; Global South.</p>
+      <p><strong>JEL:</strong> O18, R11, R14, H54, I32, O15.</p>
+    </div>
+
+    <div class="viewer">
+      <iframe src="where-urban-agglomerations-grow-next.pdf#view=FitH" title="Where Urban Agglomerations Grow Next — full PDF" loading="lazy"></iframe>
+    </div>
+  </div>
+</body>
+</html>

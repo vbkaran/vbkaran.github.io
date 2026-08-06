@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where the Forward Curve Ends · Karan Singh Bagavathinathan</title>
+<meta name="description" content="A power price looks like a solved forecast, but the tradeable horizon is short. Beyond a few years the drivers that decide power prices trade in no market at all. A note on forecasting power prices, and industrial location, in a decarbonising system.">
+<meta name="author" content="Karan Singh Bagavathinathan">
+<link rel="canonical" href="https://vbkaran.github.io/notes/where-the-forward-curve-ends.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Karan Singh Bagavathinathan">
+<meta property="og:title" content="Where the Forward Curve Ends: Forecasting Power Prices in a Decarbonising System">
+<meta property="og:description" content="The forward curve prices the near, liquid and standardised well, and prices the structural drivers of the next decade not at all. Forecasting is the work of pricing the unpriced.">
+<meta property="og:url" content="https://vbkaran.github.io/notes/where-the-forward-curve-ends.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Where the Forward Curve Ends: Forecasting Power Prices in a Decarbonising System">
+<meta name="twitter:description" content="The share of the energy future a forward curve can see is shrinking exactly as the stakes rise.">
+
+<style>
+  :root{
+    --paper:#ffffff; --ink:#000000; --ink-soft:#000000; --rule:#000000;
+    --serif:"Times New Roman",Times,"Liberation Serif","Nimbus Roman",Georgia,serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--serif);font-size:17.5px;line-height:1.52;
+    -webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-underline-offset:.15em;}
+
+  .wrap{max-width:36rem;margin:0 auto;
+    padding:clamp(22px,4vw,46px) clamp(20px,5vw,30px) 80px;}
+
+  .back{display:inline-block;font-size:13px;text-decoration:none;
+    margin-bottom:40px;opacity:.55;}
+  .back:hover{opacity:1;text-decoration:underline;}
+
+  /* ---------- title block (AER) ---------- */
+  .titleblock{text-align:center;margin:0 0 26px;}
+  h1{font-weight:700;font-size:clamp(23px,3.2vw,28px);line-height:1.22;
+    margin:0 0 6px;letter-spacing:-0.005em;text-wrap:balance;}
+  .sub{font-weight:400;font-size:clamp(17px,2.2vw,20px);line-height:1.28;
+    margin:0 0 20px;text-wrap:balance;}
+  .by{font-size:13px;letter-spacing:.09em;text-transform:uppercase;margin:0 0 4px;}
+  .dateline{font-size:13.5px;font-style:italic;margin:0;}
+  .pdflink{font-size:13.5px;margin:8px 0 0;}
+  .pdflink a{text-decoration:none;border-bottom:.5px solid currentColor;padding-bottom:1px;}
+  .pdflink a:hover{opacity:.6;}
+  @media print{.pdflink{display:none;}}
+
+  /* ---------- abstract (AER) ---------- */
+  .abstract{margin:26px auto 34px;padding:0 clamp(0px,4vw,34px);}
+  .abstract p{font-size:15px;line-height:1.46;margin:0;
+    text-align:justify;hyphens:auto;}
+  .abstract .lab{font-style:italic;}
+
+  /* ---------- sections ---------- */
+  h2{font-weight:400;font-size:16px;line-height:1.35;text-align:center;
+    margin:30px 0 12px;letter-spacing:.04em;text-transform:uppercase;}
+  p{margin:0 0 0;text-align:justify;hyphens:auto;text-indent:1.5em;}
+  p+p{margin-top:0;}
+  h2+p,.abstract+p,.eqwrap+p,.tablewrap+p{text-indent:0;}
+  .lead{text-indent:0;}
+
+  /* ---------- table (AER) ---------- */
+  .tablewrap{margin:26px 0;}
+  .tabtitle{text-align:center;font-size:13px;letter-spacing:.06em;
+    text-transform:uppercase;margin:0 0 9px;text-indent:0;}
+  .scroller{overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.36;}
+  th,td{text-align:left;padding:6px 14px 6px 0;vertical-align:top;}
+  thead th{font-weight:400;font-style:italic;
+    border-top:1.1px solid var(--rule);border-bottom:.6px solid var(--rule);
+    padding-top:7px;padding-bottom:6px;}
+  tbody tr:last-child td{border-bottom:1.1px solid var(--rule);}
+  .tabnote{font-size:13px;line-height:1.42;margin:9px 0 0;
+    text-align:left;text-indent:0;hyphens:none;}
+  .tabnote i{font-style:italic;}
+
+  /* ---------- caveats ---------- */
+  .caveat p{margin-top:11px;text-indent:1.5em;}
+  .caveat p i{font-style:italic;}
+
+  /* ---------- references ---------- */
+  .refs{margin-top:34px;}
+  .refs h3{font-weight:400;font-size:16px;text-align:center;letter-spacing:.04em;
+    text-transform:uppercase;margin:0 0 14px;}
+  .refs p{margin:0 0 8px;font-size:15px;line-height:1.42;
+    text-indent:-1.6em;padding-left:1.6em;text-align:left;hyphens:none;}
+  .foot{margin-top:26px;font-size:13.5px;font-style:italic;
+    text-align:left;text-indent:0;opacity:.75;}
+
+  @media (max-width:560px){
+    body{font-size:16.5px;}
+    p,.abstract p{text-align:left;}
+  }
+  @media print{
+    body{background:#fff;color:#000;font-size:11pt;line-height:1.4;}
+    .back{display:none;}
+    .wrap{max-width:none;padding:0;}
+    h2{break-after:avoid;}
+    .tablewrap{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="https://vbkaran.github.io/">&larr; Karan Singh Bagavathinathan</a>
+
+    <div class="titleblock">
+      <h1>Where the Forward Curve Ends</h1>
+      <p class="sub">Forecasting Power Prices, and Industrial Location, in a Decarbonising System</p>
+      <p class="by">By Karan Singh Bagavathinathan<span aria-hidden="true">*</span></p>
+      <p class="dateline">6 August 2026</p>
+    </div>
+
+    <div class="abstract">
+      <p><span class="lab">A wholesale power price looks like a forecast that has already been solved: it trades on transparent exchanges with futures stretching several years out. That view survives for about two to three years. Beyond it the liquid market thins to almost nothing, and the questions that decide prices over a decade, which is the horizon that matters most to a large energy buyer, have no market price at all. This note argues that a decarbonising system is steadily moving price risk out of the category markets price well, namely fuel, and into the category they do not price, namely policy, buildout and grid capacity. Forecasting is not the act of reading the curve. It is the work of pricing the part of the future the curve cannot see. Because power prices decide which energy-intensive industries remain viable and where, the price forecast is, in the end, a location forecast.</span></p>
+    </div>
+
+    <p class="lead">A wholesale power price looks like a forecast that has already been solved. Electricity trades on transparent exchanges, cleared every hour, with futures stretching out several years. If you want the price of power next quarter, the market will quote it to you. So it is tempting to treat forecasting as reading a curve that already exists.</p>
+
+    <p>That view survives for about two to three years out. Beyond that the liquid market thins to almost nothing, and the questions that matter most to a large energy buyer, namely where power and fuel prices sit over a decade, have no market price at all. Forecasting is not the act of reading the curve. It is the work of pricing the part of the future the curve cannot see.</p>
+
+    <h2>I. How a Power Price Is Made</h2>
+
+    <p class="lead">Electricity markets clear by merit order. Generators offer their output cheapest first, and the system dispatches from the bottom of the stack upward until demand is met. The last unit needed, the marginal plant, sets a single clearing price paid to every generator that cleared, the cheap ones included. This is pay-as-clear pricing, and it produces the most misunderstood feature of a modern power market (Borenstein 2002).</p>
+
+    <p>A grid can draw most of its energy from wind, solar, hydro and nuclear, all with near-zero fuel cost, and still see its price set by natural gas. As long as gas is the marginal plant during the hours that matter, the gas price, and the carbon cost stacked on it through the EU Emissions Trading System, flow straight through to the wholesale price of a mostly clean system. This is why European power prices tracked the gas spike of 2021 and 2022 so closely even where renewable shares were high. The average kilowatt hour was clean. The marginal one was not.</p>
+
+    <p>Three inputs therefore drive the near-term price: the fuel cost of the marginal plant, the carbon cost above it, and the demand and weather that decide which plant is marginal in a given hour. All three are visible, and all three are roughly what the forward curve is pricing.</p>
+
+    <h2>II. What the Forward Curve Can and Cannot See</h2>
+
+    <p class="lead">The tradeable horizon captures fuel, carbon and weather risk because a counterparty will take the other side of those risks. Push past a few years and the drivers change character entirely, and none of them trade.</p>
+
+    <p>Over five to ten years the price is decided by things no exchange quotes. Policy is the largest: reform of the emissions trading scheme, coal and nuclear phase-out schedules, capacity mechanisms, permitting rules. Physical buildout is the second: how fast renewables, storage, interconnectors and, above all, grids are actually built, as against announced. Demand is the third and increasingly the sharpest: the electrification of heat, transport and industry, and the arrival of large flexible loads such as data centres and electrolysers. Technology cost curves sit underneath all of it.</p>
+
+    <p>Not one of these has a price you can look up. They are the structural drivers, and they are precisely the drivers that dominate the horizon this kind of forecasting exists to serve. This is the reliability and adequacy problem Newbery (2016) frames as missing money and missing markets: the system value of firm capacity and of the grid that moves it is real, yet no liquid market prices it forward. The forward curve is not wrong about these things. It is silent about them.</p>
+
+    <h2>III. Three Horizons, Three Tools</h2>
+
+    <p class="lead">Serious energy forecasting is therefore not one method but three, matched to how far out the question reaches.</p>
+
+    <div class="tablewrap">
+      <p class="tabtitle">Table 1. Three Horizons of a Power-Price Forecast</p>
+      <div class="scroller">
+      <table>
+        <thead>
+          <tr><th>Horizon</th><th>Dominant driver</th><th>What prices it</th><th>Tool</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Under 1 year</td><td>Fuel, weather, demand</td><td>Liquid forwards and futures</td><td>Short-run supply and demand</td></tr>
+          <tr><td>1 to 5 years</td><td>Carbon price, new capacity, retirements</td><td>Thin forwards plus scenarios</td><td>Scenario-based fundamentals</td></tr>
+          <tr><td>5 years and beyond</td><td>Policy, buildout, electrification</td><td>No market</td><td>Fundamental dispatch models</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="tabnote"><i>Notes:</i> Fundamental dispatch models rebuild the merit order year by year under explicit assumptions about capacity, fuel, carbon and demand. Open and commercial tools such as PyPSA and PLEXOS exist to do this; their output is only ever as good as the scenario logic fed into them.</p>
+    </div>
+
+    <p>The short horizon is a fuel, weather and demand problem, anchored to observable forwards. The medium horizon becomes a scenario problem: what the carbon price does, how much new capacity clears, how retirements land. The long horizon is a policy and technology problem, and here the price curve disappears entirely. What replaces it is a fundamental model of the system, and the forecaster&rsquo;s real work sits in the scenario logic that drives it. The model arithmetic is mechanical. Deciding which futures are plausible, and being honest about the range rather than selling a single number, is the judgement the work actually pays for.</p>
+
+    <h2>IV. Cannibalisation and the Buyer&rsquo;s Problem</h2>
+
+    <p class="lead">For a large energy consumer the point of all this is a procurement decision, and that decision has a hard structure. Some of the price risk is hedgeable, because a liquid forward or a fixed-price contract exists for it. The rest is not, and unhedgeable risk does not vanish because no instrument covers it. It is carried, on the balance sheet, as exposure to a future the market never quoted.</p>
+
+    <p>Renewables sharpen this in a way that is easy to miss. As wind and solar grow they push down the average price through the merit-order effect, but they also depress the price in exactly the hours they generate. A wind fleet earns least when the wind blows hardest, because it is competing with itself. This is cannibalisation, and it means the capture price a variable renewable asset actually realises drifts below the average market price as its share rises (Hirth 2013; Joskow 2011). A buyer who hedges against the average, rather than the shape, is hedging the wrong risk. The useful forecast is never a single line for the average price. It is a distribution, split into the part a client can lay off in the market and the part they will absorb whatever happens, with the second part named honestly rather than buried in a point estimate.</p>
+
+    <h2>V. The Price Forecast Is a Location Forecast</h2>
+
+    <p class="lead">The buildout and the price move in opposite directions in the short run. The investment surge into renewables, grids, storage and interconnection is exactly what lowers the power price over a decade. But the surge itself competes now for grid capacity, raw materials and connection queues, and it lands on the bill before the cheap electrons do. Energy-intensive production is the pressure gauge on which this tension is read.</p>
+
+    <p>Aluminium, steel, chemicals, cement, glass and fertiliser, and now data centres and electrolysers, are the industries whose margins are decided by the power price. They are the first to move when prices diverge across regions. When one jurisdiction&rsquo;s power sits structurally above another&rsquo;s, energy-intensive production does not merely pay more. It relocates, or it does not get built. A forecast of the average price that ignores this is answering a smaller question than the client is asking. The question is not only what the price will be. It is whether, at that price, this smelter or this plant still exists here in 2032. The forecast that matters is therefore a location forecast wearing the clothes of a price forecast, and the unhedgeable, structural risks of Sections II and IV are exactly the ones that decide it.</p>
+
+    <h2>VI. What Is Not Claimed</h2>
+
+    <div class="caveat">
+      <p class="lead">This is a framing, not a model run. Each horizon in Table 1 hides real estimation difficulty, and the long-horizon scenarios that decide the location question are the least testable of all: they turn on political and permitting outcomes that no dataset yet contains. Nothing here should be read as a claim that the ten-year price is knowable. The claim is narrower and, I think, harder to argue with: that the ten-year price is not readable off any market, so the work of forecasting it is the work of pricing the unpriced, transparently and with a stated range.</p>
+
+      <p>The through-line is simple. Markets price the near, the liquid and the standardised well, and they price the far, the structural and the one-off not at all. A decarbonising power system is moving risk steadily out of the first category and into the second: away from fuel, which trades, and toward policy, buildout and grid capacity, which do not. The share of the energy future the forward curve can see is shrinking exactly as the stakes rise. That is not a reason to distrust forecasts. It is the reason forecasting is a discipline rather than a data feed. The forward curve tells you where the market&rsquo;s knowledge ends. The forecast begins there.</p>
+    </div>
+
+    <div class="refs">
+      <h3>References</h3>
+      <p>Borenstein, Severin. 2002. &ldquo;The Trouble with Electricity Markets: Understanding California&rsquo;s Restructuring Disaster.&rdquo; <i>Journal of Economic Perspectives</i> 16 (1): 191&ndash;211.</p>
+      <p>Hirth, Lion. 2013. &ldquo;The Market Value of Variable Renewables: The Effect of Solar Wind Power Variability on their Relative Price.&rdquo; <i>Energy Economics</i> 38: 218&ndash;236.</p>
+      <p>Joskow, Paul L. 2011. &ldquo;Comparing the Costs of Intermittent and Dispatchable Electricity Generating Technologies.&rdquo; <i>American Economic Review</i> 101 (3): 238&ndash;241.</p>
+      <p>Newbery, David M. 2016. &ldquo;Missing Money and Missing Markets: Reliability, Capacity Auctions and Interconnectors.&rdquo; <i>Energy Policy</i> 94: 401&ndash;410.</p>
+      <p class="foot">* Bagavathinathan: Germany (email: <a href="mailto:vbk.singh@gmail.com">vbk.singh@gmail.com</a>; web: <a href="https://vbkaran.github.io">vbkaran.github.io</a>). A short note accompanying ongoing work on price risk in large physical systems; see the companion paper on price analysis for global large projects. Comments welcome.</p>
+    </div>
+  </div>
+</body>
+</html>

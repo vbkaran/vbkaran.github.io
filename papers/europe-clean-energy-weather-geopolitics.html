@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Weather and Geopolitics Are Stress-Testing Europe's Clean Energy Transition · Karan Singh Bagavathinathan</title>
+<title>Weather and Geopolitics Are Stress-Testing Europe's Clean Energy Transition | Karan Singh Bagavathinathan</title>
 <meta name="description" content="European power prices read at the resolution the system runs at: one price per bidding zone per hour across 3.9 million zone-hours ending 10 August 2026. The clean transition has moved Europe's economic cycle in between a weather cycle and a political one.">
 <meta name="author" content="Karan Singh Bagavathinathan">
 <link rel="canonical" href="https://vbkaran.github.io/papers/europe-clean-energy-weather-geopolitics.html">
@@ -12,14 +12,17 @@
 <meta property="og:site_name" content="Karan Singh Bagavathinathan">
 <meta property="og:title" content="Weather and Geopolitics Are Stress-Testing Europe's Clean Energy Transition">
 <meta property="og:description" content="Wind, water, and the price of the European evening. A European power price read by zone and by hour, and why the transition has made that price harder to read.">
+<meta property="og:image" content="https://vbkaran.github.io/papers/europe-clean-energy-cover.jpg">
 <meta property="og:url" content="https://vbkaran.github.io/papers/europe-clean-energy-weather-geopolitics.html">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Weather and Geopolitics Are Stress-Testing Europe's Clean Energy Transition">
 <meta name="twitter:description" content="Wind, water, and the price of the European evening. Evidence from 2026.">
+<meta name="twitter:image" content="https://vbkaran.github.io/papers/europe-clean-energy-cover.jpg">
 
 <style>
   :root{
-    --paper:#ffffff; --ink:#000000; --ink-soft:#000000; --rule:#000000;
+    --paper:#ffffff; --ink:#000000; --rule:#000000;
+    --accent:#c2410c;
     --serif:"Times New Roman",Times,"Liberation Serif","Nimbus Roman",Georgia,serif;
   }
   *{box-sizing:border-box;}
@@ -28,12 +31,28 @@
     -webkit-font-smoothing:antialiased;}
   a{color:inherit;text-underline-offset:.15em;}
 
-  .wrap{max-width:36rem;margin:0 auto;
-    padding:clamp(22px,4vw,46px) clamp(20px,5vw,30px) 80px;}
+  .wrap{max-width:38rem;margin:0 auto;
+    padding:clamp(20px,4vw,40px) clamp(20px,5vw,30px) 80px;}
 
   .back{display:inline-block;font-size:13px;text-decoration:none;
-    margin-bottom:40px;opacity:.55;}
+    margin-bottom:26px;opacity:.55;}
   .back:hover{opacity:1;text-decoration:underline;}
+
+  /* ---------- colourful cover ---------- */
+  .cover{display:block;margin:0 0 8px;position:relative;
+    border-radius:10px;overflow:hidden;text-decoration:none;
+    box-shadow:0 10px 34px rgba(11,26,48,.34);
+    background:#0b1a30;}
+  .cover img{display:block;width:100%;height:auto;}
+  .cover .badge{position:absolute;left:0;right:0;bottom:0;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:26px 20px 16px;
+    background:linear-gradient(to top,rgba(6,14,26,.92),rgba(6,14,26,0));
+    color:#f5f4f0;font-size:13.5px;letter-spacing:.02em;}
+  .cover .badge b{color:#ffb27a;font-weight:700;}
+  .cover:hover{box-shadow:0 12px 40px rgba(11,26,48,.46);}
+  .caption{text-align:center;font-size:12.5px;font-style:italic;
+    opacity:.6;margin:0 0 30px;}
 
   /* ---------- title block (AER) ---------- */
   .titleblock{text-align:center;margin:0 0 26px;}
@@ -43,19 +62,21 @@
     margin:0 0 20px;text-wrap:balance;}
   .by{font-size:13px;letter-spacing:.09em;text-transform:uppercase;margin:0 0 4px;}
   .dateline{font-size:13.5px;font-style:italic;margin:0;}
-  .pdflink{font-size:14.5px;margin:14px 0 0;}
-  .pdflink a{text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;font-weight:700;}
-  .pdflink a:hover{opacity:.6;}
-  @media print{.pdflink{display:none;}}
+
+  .cta{display:inline-block;margin:16px 0 0;padding:10px 22px;
+    background:var(--accent);color:#fff;text-decoration:none;
+    border-radius:8px;font-size:15px;font-weight:700;letter-spacing:.01em;}
+  .cta:hover{background:#9a3412;}
+  @media print{.cta,.cover .badge{display:none;}}
 
   /* ---------- abstract (AER) ---------- */
-  .abstract{margin:26px auto 34px;padding:0 clamp(0px,4vw,34px);}
+  .abstract{margin:30px auto 34px;padding:0 clamp(0px,4vw,34px);}
   .abstract p{font-size:15px;line-height:1.46;margin:0;
     text-align:justify;hyphens:auto;}
 
   /* ---------- sections ---------- */
   h2{font-weight:400;font-size:16px;line-height:1.35;text-align:center;
-    margin:34px 0 12px;letter-spacing:.04em;text-transform:uppercase;}
+    margin:34px 0 12px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);}
   p{margin:0 0 0;text-align:justify;hyphens:auto;text-indent:1.5em;}
   p+p{margin-top:0;}
   h2+p,.abstract+p{text-indent:0;}
@@ -66,8 +87,10 @@
   .facts li{font-size:15.5px;line-height:1.44;padding:9px 0 9px 1.1em;
     text-indent:-1.1em;border-top:.5px solid rgba(0,0,0,.14);}
   .facts li:first-child{border-top:none;}
-  .facts li::before{content:"\2013";padding-right:.5em;}
+  .facts li::before{content:"\2013";color:var(--accent);padding-right:.5em;}
   .facts b{font-weight:700;}
+
+  .endcta{text-align:center;margin:36px 0 0;}
 
   .foot{margin-top:30px;font-size:13.5px;font-style:italic;
     text-align:left;text-indent:0;opacity:.75;}
@@ -78,9 +101,9 @@
   }
   @media print{
     body{background:#fff;color:#000;font-size:11pt;line-height:1.4;}
-    .back{display:none;}
+    .back,.cover{display:none;}
     .wrap{max-width:none;padding:0;}
-    h2{break-after:avoid;}
+    h2{break-after:avoid;color:#000;}
   }
 </style>
 </head>
@@ -88,12 +111,19 @@
   <div class="wrap">
     <a class="back" href="https://vbkaran.github.io/">&larr; Karan Singh Bagavathinathan</a>
 
+    <a class="cover" href="europe-clean-energy-weather-geopolitics.pdf" target="_blank" rel="noopener" aria-label="Open the full report as a PDF">
+      <img src="europe-clean-energy-cover.jpg" width="1000" height="1294"
+           alt="Cover: a map of Europe with rivers shaded by how far below their 1991 to 2025 normal they ran in 2026.">
+      <span class="badge"><span>Working paper &middot; August 2026</span><span><b>Read the full report (PDF) &rarr;</b></span></span>
+    </a>
+    <p class="caption">Rivers shaded by flow against their 1991&ndash;2025 normal for the date. The redder the river, the drier it ran.</p>
+
     <div class="titleblock">
       <h1>Weather and Geopolitics Are Stress-Testing Europe&rsquo;s Clean Energy Transition</h1>
       <p class="sub">Wind, Water, and the Price of the European Evening</p>
       <p class="by">By Karan Singh Bagavathinathan<span aria-hidden="true">*</span></p>
       <p class="dateline">August 2026 &middot; Evidence from 2026</p>
-      <p class="pdflink"><a href="europe-clean-energy-weather-geopolitics.pdf" target="_blank" rel="noopener">Read the full report (PDF)</a></p>
+      <p><a class="cta" href="europe-clean-energy-weather-geopolitics.pdf" target="_blank" rel="noopener">Read the full report (PDF)</a></p>
     </div>
 
     <div class="abstract">
@@ -115,7 +145,9 @@
     <p><b>2. The external bill.</b> What Europe depends on to build the transition and to run it, from turbines, cells and transformers to the gas that is still the fastest substitute when the weather turns, and why diversifying supply swaps one concentrated exposure for another.</p>
     <p><b>3. The market, and who carries it.</b> How a European power price is now formed hour by hour and zone by zone, why prices sit far above where they started, who pays for the evening, and why the market has split into four regimes inside one coupled system.</p>
 
-    <p class="pdflink" style="text-align:center;margin-top:34px;text-indent:0;"><a href="europe-clean-energy-weather-geopolitics.pdf" target="_blank" rel="noopener">Read the full report (PDF)</a></p>
+    <div class="endcta">
+      <a class="cta" href="europe-clean-energy-weather-geopolitics.pdf" target="_blank" rel="noopener">Read the full report (PDF)</a>
+    </div>
 
     <p class="foot">* Bagavathinathan: Germany (email: <a href="mailto:vbk.singh@gmail.com">vbk.singh@gmail.com</a>; web: <a href="https://vbkaran.github.io">vbkaran.github.io</a>). Working paper; comments welcome.</p>
   </div>
